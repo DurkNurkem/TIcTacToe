@@ -11,8 +11,7 @@ import java.util.Scanner;
 public class TicTacToe
 {
 
-
-   public static String[][] haveAGo(String [][] pBoard, String pGoAttempt, boolean pRealPlayer)
+   public static void haveAGo(String [][] pBoard, String pGoAttempt, boolean pRealPlayer)
    {
 
       boolean spaceFree = false;
@@ -45,10 +44,7 @@ public class TicTacToe
          }
       }//do
       while(!spaceFree);
-
-      return pBoard;
-
-   }//updateBoard
+   }//haveAGo()
 
    public static void printBoard(String[][] pBoard)
    {
@@ -62,7 +58,7 @@ public class TicTacToe
          System.out.print("|\n");
          System.out.println("+---+---+---+");
       }//for
-   }
+   }//printBoard()
 
    public static String computerGo()
    {
@@ -112,7 +108,6 @@ public class TicTacToe
          {
             realPlayerTurn=true;
             haveAGo(board, playerGo(), realPlayerTurn);
-            printBoard(board);
             winnerFound=checkWinner(board);
          }
          else
@@ -127,17 +122,9 @@ public class TicTacToe
 
       if (realPlayerTurn)
       {
-         System.out.print("Congradulations! YOU WON!");
+         System.out.println("Congradulations! YOU WON!");
       }
-      else System.out.print("Sorry you lost chump!");
-
-
-
-
-
-
-
-
+      else System.out.println("Sorry you lost chump!");printBoard(board);
 
 
    }//Main
